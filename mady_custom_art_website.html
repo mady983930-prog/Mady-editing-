@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mady — Custom Art Studio</title>
+<meta name="description" content="Mady creates custom artwork and creative edits made for you.">
+<style>
+:root{--ink:#171512;--paper:#f7f3ec;--cream:#ebe3d5;--accent:#b55b3e;--muted:#756e65;--line:#d8d0c4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif}a{text-decoration:none;color:inherit}
+.nav{position:sticky;top:0;z-index:20;background:rgba(247,243,236,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navin{max-width:1180px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:Georgia,serif;font-size:30px;font-weight:700;letter-spacing:-1px}.links{display:flex;gap:28px;font-size:14px}.links a:hover{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;background:var(--ink);color:white;font-size:14px;font-weight:700;border:0;cursor:pointer}.btn.light{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.hero{max-width:1180px;margin:auto;padding:82px 24px 72px;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.kicker{text-transform:uppercase;letter-spacing:3px;font-size:11px;color:var(--accent);font-weight:800}.hero h1{font:700 clamp(54px,8vw,100px)/.88 Georgia,serif;letter-spacing:-5px;margin:18px 0 26px}.hero p{max-width:540px;color:var(--muted);font-size:18px;line-height:1.7}.actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.art-hero{height:520px;border-radius:2px;background:linear-gradient(145deg,#d5c3a8 0 35%,#8c4f3a 35% 54%,#25231f 54% 69%,#d9d1c5 69%);position:relative;overflow:hidden;box-shadow:20px 22px 0 var(--cream)}.art-hero:before{content:"";position:absolute;width:250px;height:390px;border-radius:50% 50% 44% 56%;background:#e7d5b9;left:28%;top:10%;transform:rotate(12deg)}.art-hero:after{content:"MADY";position:absolute;right:22px;bottom:18px;color:white;font:700 25px Georgia;letter-spacing:5px}
+.section{max-width:1180px;margin:auto;padding:90px 24px}.section.alt{max-width:none;background:var(--cream)}.inner{max-width:1180px;margin:auto}.head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}.head h2{font:700 48px/1 Georgia,serif;margin:0;letter-spacing:-2px}.head p{max-width:430px;color:var(--muted);line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:white;border:1px solid var(--line);overflow:hidden}.visual{aspect-ratio:1/1;background:linear-gradient(135deg,#c6a987,#f0e7d7 44%,#6e4036 45% 65%,#1d1b18 66%)}.v2{background:linear-gradient(145deg,#d9d0c3,#9e604d 48%,#e6c99f 49% 70%,#24221e 71%)}.v3{background:radial-gradient(circle at 65% 35%,#e5c28f 0 15%,transparent 16%),linear-gradient(135deg,#292622 0 40%,#b46c50 41% 70%,#ddd2c3 71%)}.cardbody{padding:18px 18px 20px}.cardbody h3{margin:0 0 7px;font:700 23px Georgia,serif}.cardbody p{margin:0;color:var(--muted);font-size:14px}.price{margin-top:15px;font-weight:800}
+.services{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}.service{padding:34px 26px;border-right:1px solid var(--line)}.service:last-child{border-right:0}.num{font-size:12px;color:var(--accent);font-weight:800}.service h3{font:700 28px Georgia,serif;margin:35px 0 12px}.service p{color:var(--muted);line-height:1.7}
+.order{background:var(--ink);color:white;padding:80px 24px}.orderin{max-width:900px;margin:auto;text-align:center}.order h2{font:700 55px/1 Georgia,serif;letter-spacing:-2px;margin:0 0 18px}.order p{color:#c9c2b9;line-height:1.7;max-width:600px;margin:0 auto 28px}.form{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:650px;margin:30px auto 0}.form input,.form textarea,.form select{width:100%;padding:15px 16px;background:#25231f;border:1px solid #45413b;color:white;border-radius:10px;font:inherit}.form textarea{min-height:110px;grid-column:1/-1;resize:vertical}.form .full{grid-column:1/-1}.form button{grid-column:1/-1}.note{font-size:12px;color:#8f8980;margin-top:15px}
+footer{max-width:1180px;margin:auto;padding:28px 24px;display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+@media(max-width:800px){.links{display:none}.hero{grid-template-columns:1fr;padding-top:55px}.art-hero{height:380px}.grid,.services{grid-template-columns:1fr}.service{border-right:0;border-bottom:1px solid var(--line)}.head{display:block}.head h2{font-size:40px;margin-bottom:15px}.order h2{font-size:42px}.form{grid-template-columns:1fr}.form textarea,.form .full,.form button{grid-column:auto}footer{display:block;text-align:center}footer div{margin:7px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="navin"><a class="logo" href="#">mady.</a><div class="links"><a href="#work">Art</a><a href="#services">Services</a><a href="#order">Custom Order</a></div><a class="btn" href="#order">Commission a piece</a></div></nav>
+
+<header class="hero">
+<div><div class="kicker">Custom art · creative edits</div><h1>Art made<br>personal.</h1><p>Welcome to Mady — a small creative studio making custom artwork and visual edits that feel uniquely yours.</p><div class="actions"><a class="btn" href="#order">Start a custom order</a><a class="btn light" href="#work">Explore the work</a></div></div>
+<div class="art-hero" aria-label="Abstract artwork preview"></div>
+</header>
+
+<section class="section" id="work"><div class="head"><h2>Selected work</h2><p>A few example pieces to show the kind of visual direction Mady can create. Your final piece can be completely customized.</p></div>
+<div class="grid">
+<article class="card"><div class="visual"></div><div class="cardbody"><h3>Portrait Study</h3><p>Custom digital portrait · made from your photo</p><div class="price">From ₹799</div></div></article>
+<article class="card"><div class="visual v2"></div><div class="cardbody"><h3>Dreamscape</h3><p>Personalized artwork · print-ready digital file</p><div class="price">From ₹999</div></div></article>
+<article class="card"><div class="visual v3"></div><div class="cardbody"><h3>Poster Edit</h3><p>Creative poster / cover design · custom concept</p><div class="price">From ₹499</div></div></article>
+</div></section>
+
+<section class="section alt" id="services"><div class="inner"><div class="head"><h2>What Mady makes</h2><p>Choose a starting point or tell me what you have in mind.</p></div>
+<div class="services">
+<div class="service"><span class="num">01</span><h3>Custom Art</h3><p>Portraits, illustrations and personal artwork created around your idea, photo or story.</p></div>
+<div class="service"><span class="num">02</span><h3>Photo Editing</h3><p>Cleanups, creative edits, color work and aesthetic transformations for your photos.</p></div>
+<div class="service"><span class="num">03</span><h3>Design</h3><p>Posters, covers, thumbnails and social media visuals designed to stand out.</p></div>
+</div></div></section>
+
+<section class="order" id="order"><div class="orderin"><div class="kicker">Custom commission</div><h2>Have an idea?</h2><p>Send the basics below. Mady can turn your idea into a custom piece. Add your reference photo or details when you get in touch.</p>
+<form class="form" onsubmit="sendOrder(event)">
+<input required id="name" placeholder="Your name">
+<input required id="contact" placeholder="WhatsApp / Instagram / email">
+<select id="type"><option>Custom artwork</option><option>Portrait</option><option>Photo editing</option><option>Poster / design</option><option>Something else</option></select>
+<input id="budget" placeholder="Budget (optional)">
+<textarea id="idea" placeholder="Tell me about your idea..."></textarea>
+<button class="btn" type="submit">Send commission request</button>
+</form><div class="note">The button opens your email app. Commission requests will be sent to mady983930@gmail.com.</div>
+</div></section>
+
+<footer><div>© 2026 mady. All rights reserved.</div><div>Custom art · Editing · Design</div></footer>
+<script>
+function sendOrder(e){
+ e.preventDefault();
+ const email="mady983930@gmail.com";
+ const body=`Name: ${name.value}%0AContact: ${contact.value}%0AService: ${type.value}%0ABudget: ${budget.value}%0A%0AIdea:%0A${idea.value}`;
+ location.href=`mailto:${email}?subject=Mady Custom Order&body=${body}`;
+}
+</script>
+</body></html>
